@@ -61,6 +61,21 @@ public class MemberJpaRepositoryTest {
         long deletedCount = memberJpaRepository.count();
         assertThat(deletedCount).isEqualTo(0);
 
+    }
+
+    @Test
+    public void testFindByUsernameAndAgeGreaterThen() throws Exception {
+        Member m1 = new Member("AAA", 10);
+        Member m2 = new Member("AAA", 20);
+
+        memberJpaRepository.save(m1);
+        memberJpaRepository.save(m2);
+
+        List<Member> result = memberJpaRepository.findByUsernameAndAgeGreaterThen("AAA", 15);
+
+        for(Member m : result){
+            System.out.println("member : " + m);
+        }
 
     }
 
