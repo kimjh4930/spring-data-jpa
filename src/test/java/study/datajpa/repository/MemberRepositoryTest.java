@@ -24,7 +24,7 @@ class MemberRepositoryTest {
 
     @Test
     public void testMember (){
-        Member member = new Member("MemberA");
+        Member member = new Member("MemberA", 0, null);
         Member savedMember = memberRepository.save(member);
 
         Member findMember = memberRepository.findById(savedMember.getId()).get();
